@@ -3,4 +3,6 @@ class Post < ApplicationRecord
   validates :details, presence: true, length: { minimum: 15, maximum: 150 }
 
   belongs_to :user
+  has_many :comments, class_name: 'Comment'
+
 end
