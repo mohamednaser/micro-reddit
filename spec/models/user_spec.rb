@@ -38,9 +38,8 @@ RSpec.describe 'Test User Model ', type: :model do
       @user_obj.email = 'asd@asd.com'
       @user_obj.save
 
-      first_post = Post.create(user_id: @user_obj.id, title: 'temp title', details: 'Post details you can add any details here').save
-
-      user_comment = Comment.create(user_id: @user_obj.id, post_id: 1, comment: 'this is a comment').save
+      Post.create(user_id: @user_obj.id, title: 'temp title', details: 'Post details you can add any details here').save
+      Comment.create(user_id: @user_obj.id, post_id: 1, comment: 'this is a comment').save
 
       expect(Comment.first.comment).to eql('this is a comment')
     end
